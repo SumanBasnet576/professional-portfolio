@@ -17,10 +17,10 @@ body {
     width: min(100% - 4rem, 1042px);
     margin: auto;
     gap: 2rem;
+    margin-top: var(--mb-6);
     margin-bottom: var(--mb-4);
     text-align: center;
     @media (width > 720px) {
-        /* border-radius: 24px; */
         width: min(100% - 4rem, 1042px);
       }
     

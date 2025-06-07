@@ -22,22 +22,63 @@ function linkAction(){
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-const sections = document.querySelectorAll('section[id]')
+// const sections = document.querySelectorAll('section[id]')
 
-const scrollActive = () =>{
-    const scrollDown = window.scrollY
+// const scrollActive = () =>{
+//     const scrollDown = window.scrollY
 
-  sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight,
-              sectionTop = current.offsetTop - 58,
-              sectionId = current.getAttribute('id'),
-              sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+//   sections.forEach(current =>{
+//         const sectionHeight = current.offsetHeight,
+//               sectionTop = current.offsetTop - 58,
+//               sectionId = current.getAttribute('id'),
+//               sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
         
-        if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-            sectionsClass.classList.add('active-link')
-        }else{
-            sectionsClass.classList.remove('active-link')
-        }                                                    
-    })
-}
-window.addEventListener('scroll', scrollActive)
+//         if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
+//             sectionsClass.classList.add('active-link')
+//         }else{
+//             sectionsClass.classList.remove('active-link')
+//         }                                                    
+//     })
+// }
+// window.addEventListener('scroll', scrollActive)
+
+
+/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+const sections = document.querySelectorAll('section[id]');
+
+// Smooth scroll with offset
+document.querySelectorAll('.nav__menu a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').slice(1);
+    const targetSection = document.getElementById(targetId);
+
+    const headerOffset = 100;
+    const sectionPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = sectionPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  });
+});
+
+const scrollActive = () => {
+  const scrollDown = window.scrollY;
+
+  sections.forEach(current => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 100;
+    const sectionId = current.getAttribute('id');
+    const sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+
+    if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+      sectionsClass.classList.add('active-link');
+    } else {
+      sectionsClass.classList.remove('active-link');
+    }
+  });
+};
+
+window.addEventListener('scroll', scrollActive);
