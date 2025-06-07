@@ -1,0 +1,110 @@
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+.contact__head {
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  margin-top: var(--mb-6);
+  text-align: center;
+}
+
+.contact__head::after { 
+  position: absolute;
+  content: "";
+  width: 75px;
+  height: 0.18rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: var(--first-color);
+}
+
+
+
+form {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: var(--mb-4);
+  margin-top: var(--mb-3);
+  @media (width > 720px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-group {
+  display: grid;
+  gap: 0.5cap;
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+input {
+  background: var(--first-color-lighter);
+  color: var(--text-1);
+  border: var(--border);
+  border-radius: 16px;
+  padding: 1ex 2ex;
+  accent-color: var(--accent);
+}
+
+input:not([type="checkbox"], [type="radio"]) {
+  width: 100%;
+}
+
+.form-group:has(.fine-print) {
+  grid-column: 1 / -1;
+
+  display: flex;
+  gap: 0.5ch;
+}
+
+.contact-form button {
+  justify-self: start;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+
+h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+a {
+  color: hsl(from var(--accent) h s 80%);
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.fine-print {
+  font-size: 0.925rem;
+  text-transform: revert;
+  line-height: 1.4;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  color: black;
+  /* background-color: var(--surface-1); */
+  border-radius: 24px;
+  width: min(100% - 4rem, 1024px);
+  margin-inline: auto;
+  
+}

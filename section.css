@@ -1,0 +1,27 @@
+
+
+body {
+  font-family: var(--body-font);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var( --surface-0);
+  -webkit-padding-before: 10vb;
+
+          /* padding-block-start: 10vb; */
+}
+
+  .section {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+    width: min(100% - 4rem, 1042px);
+    margin: auto;
+    gap: 2rem;
+    margin-bottom: var(--mb-4);
+    text-align: center;
+    @media (width > 720px) {
+        /* border-radius: 24px; */
+        width: min(100% - 4rem, 1042px);
+      }
+    
+}
